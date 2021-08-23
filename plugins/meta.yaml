@@ -17,5 +17,5 @@ spec:
     memoryLimit: '512M'
     args: ['/remote-endpoint/plugin-remote-endpoint']
   extensions:
-  - https://github.com/kahlai/tf-codeready/raw/master/plugins/HashiCorp.terraform-2.14.0
+  - https://github.com/kahlai/tf_codeready/raw/master/plugins/HashiCorp.terraform-2.14.0
   
