@@ -10,7 +10,7 @@ projects:
 components:
   - alias: terraform
     type: dockerimage
-    image: quay.io/kahlai/terraform-codeready
+    image: quay.io/kahlai/terraform_codeready
     memoryLimit: 512M
     mountSources: true
     args:
