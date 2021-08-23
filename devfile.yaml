@@ -1,10 +1,10 @@
 apiVersion: 1.0.0
 metadata:
-  generateName: tf-codeready-
+  generateName: tf_codeready-
 projects:
   - name: tf-codeready
     source:
-      location: 'https://github.com/kahlai/tf-codeready'
+      location: 'https://github.com/kahlai/tf_codeready'
       type: git
       branch: master
 components:
@@ -23,7 +23,7 @@ components:
 
   - alias: terraform-plugin
     type: chePlugin
-    reference: https://raw.githubusercontent.com/kahlai/tf-codeready/master/plugins/meta.yaml
+    reference: https://raw.githubusercontent.com/kahlai/tf_codeready/master/plugins/meta.yaml
      
   - id: redhat/vscode-yaml/latest
     type: chePlugin
