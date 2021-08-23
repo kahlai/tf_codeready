@@ -1,0 +1,21 @@
+apiVersion: v2
+publisher: hashicorp
+name: vscode-terraform
+version: latest
+type: VS Code extension
+displayName: Hashicorp Terraform
+title: Terraform extension
+description: Terraform for che
+icon: https://www.eclipse.org/che/images/logo-eclipseche.svg
+repository: https://github.com/hashicorp/vscode-terraform
+category: Language
+firstPublicationDate: '2021-08-23'
+spec:
+  containers:
+  - image: quay.io/kahlai/terraform_codeready
+    name: vscode-terraform
+    memoryLimit: '512M'
+    args: ['/remote-endpoint/plugin-remote-endpoint']
+  extensions:
+  - https://github.com/kahlai/tf-codeready/raw/master/plugins/HashiCorp.terraform-2.14.0
+  

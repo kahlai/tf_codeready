@@ -1,0 +1,52 @@
+apiVersion: 1.0.0
+metadata:
+  generateName: tf-codeready-
+projects:
+  - name: tf-codeready
+    source:
+      location: 'https://github.com/kahlai/tf-codeready'
+      type: git
+      branch: master
+components:
+  - alias: terraform
+    type: dockerimage
+    image: quay.io/kahlai/terraform-codeready
+    memoryLimit: 512M
+    mountSources: true
+    args:
+      - tail
+      - '-f'
+      - /dev/null
+    env:
+      - name: HOME
+        value: /projects/
+
+  - alias: terraform-plugin
+    type: chePlugin
+    reference: https://raw.githubusercontent.com/kahlai/tf-codeready/master/plugins/meta.yaml
+     
+  - id: redhat/vscode-yaml/latest
+    type: chePlugin
+
+commands:
+  - name: "Terraform: init"
+    actions:
+      - type: exec
+        command: terraform init
+        component: terraform
+        workdir: /projects/tf_codeready
+
+  - name: "Terraform: apply"
+    actions:
+      - type: exec
+        command: terraform apply
+        component: terraform
+        workdir: /projects/tf_codeready
+
+  - name: "Terraform: destroy"
+    actions:
+      - type: exec
+        command: terraform destroy
+        component: terraform
+        workdir: /projects/tf_codeready
+
